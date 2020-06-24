@@ -1,4 +1,4 @@
-import counter from "./counter";
+import counter from "./counterApp";
 import bankApp from "./bankApp";
 
 // Tego pliku nie musisz modyfikować

@@ -1,18 +1,47 @@
 import React, { Component } from "react";
 
 class ArticleInput extends Component {
+  static defaultProps = {
+    onArticleAdd: () => {},
+  };
 
-   //  <input />
-   //  <select value={this.state.userId} onChange={this.onSelectChange}>
-   //     lista użytkowników
-   //  </select>
-   //  <button>Dodaj artykuł</button>
+  constructor(props) {
+    super(props);
+    this.state = {
+      userId: "jan",
+      title: "",
+    };
+
+    this.onInputChange = this.onInputChange.bind(this);
+    this.onSelectChange = this.onSelectChange.bind(this);
+    this.onClick = this.onClick.bind(this);
+  }
+
+  onInputChange(event) {
+    this.setState({ title: event.target.value });
+  }
+
+  onSelectChange(event) {
+    this.setState({ userId: event.target.value });
+  }
+
+  onClick() {
+    console.log(this.state);
+    this.props.onArticleAdd(this.state);
+  }
+
   render() {
     return (
       <div>
-
+        <input value={this.state.title} onChange={this.onInputChange} />
+        <select value={this.state.userId} onChange={this.onSelectChange}>
+          {Object.keys(this.props.users).map((user) => (
+            <option key={user}>{user}</option>
+          ))}
+        </select>
+        <button onClick={this.onClick}>Dodaj artykuł</button>
       </div>
-    )
+    );
   }
 }
 
