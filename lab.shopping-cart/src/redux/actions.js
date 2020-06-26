@@ -1,4 +1,21 @@
-// export const ADD_PRODUCT = "addProduct";
-// export const REMOVE_PRODUCT = "removeProduct";
+export const ADD_PRODUCT = "ADD_PRODUCT";
+export const REMOVE_PRODUCT = "REMOVE_PRODUCT";
 
-// + kreatory akcji
+
+export const addProduct = ({name,price}) => {
+   return{
+    type: ADD_PRODUCT,
+    payload:{
+        name,
+        price
+
+    }
+   }
+}
+export const removeProduct = (product) => {
+    return{
+    type : REMOVE_PRODUCT,
+    payload: product
+}
+}
+
